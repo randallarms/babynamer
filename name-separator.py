@@ -19,7 +19,7 @@ print("Sorting names...")
 # Get files
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-year = "2018"
+year = "2017"
 
 names = open(os.path.join(__location__, "names/" + year + "/unsorted.txt"), "r")
 

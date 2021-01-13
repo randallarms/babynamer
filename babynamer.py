@@ -14,7 +14,7 @@ print("=========")
 print("Generate a baby name based on popular baby names!")
 
 # Acceptable values
-years = ["2018, 2019"]
+years = ["2017", "2018", "2019"]
 genders = ["female", "f", "male", "m", "girl", "girls", "boy", "boys"]
 booleans = ["yes", "y", "no", "n", "true", "false"]
 
@@ -64,7 +64,7 @@ def name_gen(year, gender, middle_option):
     file.close()
 
 # Get the year
-print("\nWhich year do you wish to draw popular baby names from? (Options: 2018-2019)")
+print("\nWhich year do you wish to draw popular baby names from? (Options: 2017-2019)")
 y = input("> ");
 
 # Get the gender
@@ -90,7 +90,7 @@ while again == True:
     a = input("> ");
 
     if not a.lower() in booleans or a.lower() == "n" or a.lower() == "no" or a.lower() == "false":
-        print("\nGoing back to menu... ")
+        print("\nFinishing program... ")
         again = False;
     if a.lower() == "y" or a.lower() == "yes" or a.lower() == "true":
         again = True;
