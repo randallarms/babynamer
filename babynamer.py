@@ -14,7 +14,7 @@ print("=========")
 print("Generate a baby name based on popular baby names!")
 
 # Acceptable values
-years = ["2019"]
+years = ["2018, 2019"]
 genders = ["female", "f", "male", "m", "girl", "girls", "boy", "boys"]
 booleans = ["yes", "y", "no", "n", "true", "false"]
 
@@ -47,7 +47,7 @@ def name_gen(year, gender, middle_option):
     # Get files
     __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
     
-    f_names = open(os.path.join(__location__, "names/" + year + "/first_" + gender + ".txt"), "r")
+    f_names = open(os.path.join(__location__, "names/" + year + "/" + gender + ".txt"), "r")
     
     # Fill list of possible names from file
     names = []
@@ -64,7 +64,7 @@ def name_gen(year, gender, middle_option):
     file.close()
 
 # Get the year
-print("\nWhich year do you wish to draw popular baby names from? (Options: 2019)")
+print("\nWhich year do you wish to draw popular baby names from? (Options: 2018-2019)")
 y = input("> ");
 
 # Get the gender
