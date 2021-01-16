@@ -71,29 +71,29 @@ def name_gen(year, gender, middle_option):
     return name_str
 
 # Get the year
-print("\nWhich year do you wish to draw popular baby names from? (Options: 2016-2019)")
+print("\nWhich year do you wish to draw popular baby names from? ")
 y = input("> ");
 
 # Get the gender
-print("\nWhich gender do you wish to draw popular baby names from? (Options: boy, girl)")
+print("\nWhich gender do you wish to draw popular baby names from? ")
 g = input("> ");
 
 # Get the middle name option
-print("\nDo you want middle name suggestions, too? (Options: yes, no)")
+print("\nDo you want middle name suggestions, too? ")
 m = input("> ");
 
 # Generate the name
 name = name_gen(y, g, m)
 
 # Print the results
-print("\nBaby name: ")
+print("\nYour baby name: ")
 print(name + "\n")
 
 # Go again prompt
 again = True
     
 while again == True:
-    print("\nWant to generate a name with the same parameters? (Options: yes, no)")
+    print("\nWant to generate a name with the same parameters? ")
     a = input("> ");
 
     if not a.lower() in booleans or a.lower() == "n" or a.lower() == "no" or a.lower() == "false":
