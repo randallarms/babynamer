@@ -22,11 +22,16 @@ years = [] # To be filled in from file below
 genders = ["female", "f", "male", "m", "girl", "girls", "boy", "boys"]
 booleans = ["yes", "y", "no", "n", "true", "false"] # Multipurpose for all y/n queries
 
-# Get acceptable years by directory names
+# Get acceptable years by directory names with male & female names files
+years = [] 
 contents = os.listdir(__names_location__)
 
 for item in contents:
-    years.append(item)
+    __male_names_location__ = os.path.join(__names_location__, item + "/male.txt")
+    __female_names_location__ = os.path.join(__names_location__, item + "/female.txt")
+    
+    if os.path.isfile(__male_names_location__) and os.path.isfile(__female_names_location__):
+        years.append(item)
 
 # Name generation
 def name_gen(year, gender, middle_option):
