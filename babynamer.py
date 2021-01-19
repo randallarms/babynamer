@@ -11,7 +11,8 @@ import os
 print("\n\n=========")
 print("BABYNAMER")
 print("=========")
-print("Generate a baby name based on popular baby names!")
+print("Generate great baby names!")
+print("Open source @ github.com/randallarms/babynamer")
 
 # Get file location
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
@@ -38,13 +39,13 @@ def name_gen(year, gender, middle_option):
 
     # Check year selction
     if not year in years:
-        print("\nYear not found! ")
-        exit()
+        print("\nError: Year not found! ")
+        return False
 
     # Determine gender
     if not gender in genders:
-        print("\nGender not found! ")
-        exit()
+        print("\nError: Gender not found! ")
+        return False
     elif gender.lower() == "m" or gender.lower() == "male" or gender.lower() == "boy" or gender.lower() == "boys":
         gender = "male"
     else:
@@ -52,12 +53,12 @@ def name_gen(year, gender, middle_option):
         
     # Determine if generating middle name
     if not middle_option in booleans:
-        print("\nMiddle name setting not recognize! ")
-        exit()
+        print("\nError: Middle name setting not recognized! ")
+        return False
     elif middle_option.lower() == "y" or middle_option.lower() == "yes" or middle_option.lower() == "true":
-        middle_option = True;
+        middle_option = True
     else:
-        middle_option = False;
+        middle_option = False
     
     f_names = open(os.path.join(__location__, "names/" + year + "/" + gender + ".txt"), "r")
     
@@ -75,38 +76,61 @@ def name_gen(year, gender, middle_option):
         name_str += " " + names[randint(0, len(names)-1)].strip('\n')
     return name_str
 
-# Get the year
-print("\nWhich year do you wish to draw popular baby names from? ")
-y = input("> ");
+# Menu, prompts
+def menu():
+    # Get the year
+    print("\nWhich year do you wish to draw popular baby names from? (" + years[0] + "-" + years[len(years)-1] + ")")
+    y = input("> ")
 
-# Get the gender
-print("\nWhich gender do you wish to draw popular baby names from? ")
-g = input("> ");
+    # Get the gender
+    print("\nWhich gender do you wish to draw popular baby names from? (boy/girl)")
+    g = input("> ")
 
-# Get the middle name option
-print("\nDo you want middle name suggestions, too? ")
-m = input("> ");
+    # Get the middle name option
+    print("\nDo you want middle name suggestions, too? (y/n)")
+    m = input("> ")
 
-# Generate the name
-name = name_gen(y, g, m)
-
-# Print the results
-print("\nYour baby name: ")
-print(name + "\n")
-
-# Go again prompt
-again = True
+    # Generate the name
+    name = name_gen(y, g, m)
     
-while again == True:
-    print("\nWant to generate a name with the same parameters? ")
-    a = input("> ");
-
-    if not a.lower() in booleans or a.lower() == "n" or a.lower() == "no" or a.lower() == "false":
-        print("\nFinishing program... ")
-        again = False;
-    if a.lower() == "y" or a.lower() == "yes" or a.lower() == "true":
-        again = True;
-        name = name_gen(y, g, m)
-        print("\nBaby name: ")
+    # Unknown option selection warning
+    if name == False:
+        print("\nThere was an error generating names using the prompts specified. ")
+        print("\nAvailable options can be found in the README file and on GitHub. ")
+        return True
+        
+    else:
+        # Print the results
+        print("\nYour baby name: ")
         print(name + "\n")
+
+        # Go again prompt
+        again = True
+            
+        while again == True:
+            print("\nWant to generate a name with the same parameters? (y/n)")
+            a = input("> ");
+
+            if not a.lower() in booleans or a.lower() == "n" or a.lower() == "no" or a.lower() == "false":
+                again = False
+                return True
+            if a.lower() == "y" or a.lower() == "yes" or a.lower() == "true":
+                again = True
+                name = name_gen(y, g, m)
+                print("\nBaby name: ")
+                print(name + "\n")
+        
+        return True
+
+# Run the menu task, or end it, according to user selection
+menu_task = menu()
+
+while menu_task == True:
+    print("\nDo you wish to try again? (y/n)")
+    i = input("> ")
+    if i.lower() == "y" or i.lower() == "yes" or i.lower() == "true":
+        menu_task = menu()
+    else:
+        exit()
+    
     

@@ -15,8 +15,8 @@ __names_location__ = os.path.join(__location__, "names/")
 contents = os.listdir(__names_location__)
 
 # Create directories
-y1 = 1900
-y2 = 2021
+y1 = 1880 # Earliest year that the records are available from the SSA website
+y2 = 2020 # Most recent year that the records are available from the SSA website, +1
 
 for y in range(y1, y2):
     __y_location__ = os.path.join(__names_location__, str(y) + "/")
