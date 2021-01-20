@@ -18,16 +18,19 @@ years = []
 contents = os.listdir(__names_location__)
 
 for item in contents:
-    __male_names_location__ = os.path.join(__names_location__, item + "/male.txt")
-    __female_names_location__ = os.path.join(__names_location__, item + "/female.txt")
-    __unsorted_location__ = os.path.join(__names_location__, item + "/unsorted.txt")
+    __item_location__ = os.path.join(__names_location__, item + "/")
+    __male_names_location__ = os.path.join(__item_location__, "male.txt")
+    __female_names_location__ = os.path.join(__item_location__, "female.txt")
+    __unsorted_names_location__ = os.path.join(__item_location__, "unsorted.txt")
     
     # Check if there is no sorted male/female names text files yet in the directory, and then if the unsorted text file has anything in it to be sorted
-    if not os.path.isfile(__male_names_location__) and not os.path.isfile(__female_names_location__) and os.stat(__unsorted_path__).st_size == 0:
+    if not os.path.isfile(__male_names_location__) and not os.path.isfile(__female_names_location__) and os.stat(__unsorted_names_location__).st_size > 0:
         years.append(item)
 
 # Sort each year directory
 for year in years:
+    __year_location__ = os.path.join(__names_location__, year + "/")
+    __unsorted_location__ = os.path.join(__year_location__, "unsorted.txt")
     names = open(__unsorted_location__, "r")
 
     # Fill list of possible names from file
