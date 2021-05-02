@@ -1,12 +1,11 @@
 #======================================#
-#            BabyNamer Sort            #
+#              BabyNamer               #
 #           by Randall Arms            #
 #  github.com/randallarms/babynamer    #
 #======================================#
 
-# The program returns a JSON version of the SSA data based on input parameters.
+# This program outputs a JSON file containing the objectified SSA data.
 
-import os
 import json
 import objectify
 

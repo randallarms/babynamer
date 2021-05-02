@@ -1,10 +1,10 @@
 #======================================#
-#            BabyNamer Sort            #
+#              BabyNamer               #
 #           by Randall Arms            #
 #  github.com/randallarms/babynamer    #
 #======================================#
 
-# The program takes the ordered list of popular boy and girl names from the SSA and sorts it for use with the main program.
+# This program takes the ordered list of popular boy and girl names from the SSA and sorts it for use with the main program.
 # Ya know, because I am not manually sorting two lists of 1000 names each for every single year. >:)
 
 import os

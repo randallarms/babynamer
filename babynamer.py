@@ -7,11 +7,10 @@
 from random import randint
 import os
 
-# Opening text
+# Greeting text
 print("\n\n=========")
 print("BABYNAMER")
 print("=========")
-print("Generate great baby names!")
 print("Open source @ github.com/randallarms/babynamer")
 
 # Get file location
@@ -19,7 +18,6 @@ __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file
 __names_location__ = os.path.join(__location__, "names/")
 
 # Acceptable values
-years = [] # To be filled in from file below
 genders = ["female", "f", "male", "m", "girl", "girls", "boy", "boys"]
 booleans = ["yes", "y", "no", "n", "true", "false"] # Multipurpose for all y/n queries
 

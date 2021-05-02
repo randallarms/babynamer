@@ -1,5 +1,5 @@
 #======================================#
-#         BabyNamer Partition          #
+#              BabyNamer               #
 #           by Randall Arms            #
 #  github.com/randallarms/babynamer    #
 #======================================#

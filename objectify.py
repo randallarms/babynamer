@@ -1,10 +1,10 @@
 #======================================#
-#            BabyNamer Sort            #
+#              BabyNamer               #
 #           by Randall Arms            #
 #  github.com/randallarms/babynamer    #
 #======================================#
 
-# The program returns an object version of the SSA data based on input parameters.
+# This program returns an object version of the SSA data.
 
 import os
 
