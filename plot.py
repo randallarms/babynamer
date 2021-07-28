@@ -25,9 +25,21 @@ print("BABYNAMER")
 print("=========")
 print("Open source @ github.com/randallarms/babynamer")
 
-# Get the name
+# Get the name and gender
 print("\nWhich name do you wish to plot the popularity of? (NOTE: case-sensitive!) ")
-__name__ = input("> ")
+name = input("> ")
+
+print("\nWhich gender do you wish to plot the popularity of? (Options: male, female) ")
+gender = input("> ")
+
+genders = ["male", "female", "m", "f", "boy", "girl"]
+gender_male = ["male", "m", "boy"]
+gender_female = ["female", "f", "girl"]
+
+while not gender in genders:
+    print("\nPlease enter one of the options provided: \'male\' or \'female\'")
+    print("\nWhich gender do you wish to plot the popularity of? (Options: male, female) ")
+    gender = input("> ")
 
 
 # DATA
@@ -41,17 +53,18 @@ x_coords = []
 
 for __key__ in __data__['male'].keys():
     x_coords.append(int(__key__))
-    if __name__ in __data__['male'][__key__].values():
+    if name in __data__['male'][__key__].values():
         for rank, name_val in __data__['male'][__key__].items():
-            if name_val == __name__:
-                y_coords_male.append(int(rank))
+            if name_val == name:
+                y_coords_male.append(1001-int(rank))
     else:
         y_coords_male.append(0)
+
 for __key__ in __data__['female'].keys():
-    if __name__ in __data__['female'][__key__].values():
+    if name in __data__['female'][__key__].values():
         for rank, name_val in __data__['female'][__key__].items():
-            if name_val == __name__:
-                y_coords_female.append(int(rank))
+            if name_val == name:
+                y_coords_female.append(1001-int(rank))
     else:
         y_coords_female.append(0)
 
@@ -59,16 +72,21 @@ for __key__ in __data__['female'].keys():
 # PLOT
 
 # Create line graph
-plt.figure(num='Popularity of ' + __name__)
-plt.title('Popularity of \"' + __name__ + '\"')
+plt.figure(num='Popularity of ' + name)
+plt.title('Popularity of \"' + name + '\"')
 
 # Plot the coords
-plt.plot(x_coords, y_coords_male, marker=',')
+if gender in gender_male:
+    y_coords = y_coords_male
+if gender in gender_female:
+    y_coords = y_coords_female
+
+plt.plot(x_coords, y_coords, marker=',')
     
 # Build x, y axes
 plt.xlabel('Year')
 plt.ylabel('Rank')
-plt.yticks(range(0, 1001, 100), range(0, 1001, 100))
+plt.yticks([1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 1], ["#1", "#100", "#200", "#300", "#400", "#500", "#600", "#700", "#800", "#900", "#1000"])
 
 # Build line graph
 plt.grid(True)
