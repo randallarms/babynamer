@@ -34,7 +34,9 @@ genders = ["male", "female", "m", "f", "boy", "girl"]
 gender_male = ["male", "m", "boy"]
 gender_female = ["female", "f", "girl"]
 
-while loop_input in loop_continue:
+
+# Plotting function
+def plot_it():
 
     # PROMPT
 
@@ -104,6 +106,13 @@ while loop_input in loop_continue:
     # Display line graph
     plt.show()
 
+
+# Plotting loop
+while loop_input in loop_continue:
+
+    # Plot it
+    plot_it()
+    
     # Prompt to continue
     print("\nWould you like to look up another name? ")
     loop_input = input("> ")
