@@ -15,7 +15,7 @@ print("Open source @ github.com/randallarms/babynamer")
 
 # Get file location
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-__names_location__ = os.path.join(__location__, "names/")
+names_location = os.path.join(__location__, "names/")
 
 # Acceptable values
 genders = ["female", "f", "male", "m", "girl", "girls", "boy", "boys"]
@@ -23,13 +23,13 @@ booleans = ["yes", "y", "no", "n", "true", "false"] # Multipurpose for all y/n q
 
 # Get acceptable years by directory names with male & female names files
 years = [] 
-contents = os.listdir(__names_location__)
+contents = os.listdir(names_location)
 
 for item in contents:
-    __male_names_location__ = os.path.join(__names_location__, item + "/male.txt")
-    __female_names_location__ = os.path.join(__names_location__, item + "/female.txt")
+    male_names_location = os.path.join(names_location, item + "/male.txt")
+    female_names_location = os.path.join(names_location, item + "/female.txt")
     
-    if os.path.isfile(__male_names_location__) and os.path.isfile(__female_names_location__):
+    if os.path.isfile(male_names_location) and os.path.isfile(female_names_location):
         years.append(item)
 
 # Name generation
